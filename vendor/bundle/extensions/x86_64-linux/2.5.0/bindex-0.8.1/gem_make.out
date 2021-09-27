@@ -1,0 +1,15 @@
+current directory: /home/developer/rails/mydemoproject/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+/home/developer/.rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20210927-12961-54mzvc.rb extconf.rb
+creating Makefile
+
+current directory: /home/developer/rails/mydemoproject/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/developer/rails/mydemoproject/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/developer/rails/mydemoproject/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -m 0755 cruby.so ./.gem.20210927-12961-1excob0/skiptrace/internal
