@@ -1,15 +1,53 @@
 <body class="container">
 <style type="text/css">
-   body { background: pink }
+ #Select{
+     height: 30px;
+     width: 200px;
+     
+ }
+ #Search{
+    height: 30px;
+    width: 150px;
+
+ }
+ #date{
+    height: 30px;
+    width: 200px;
+ }
+
+body { background: pink }
 </style>
 
 <h1>Welcome User</h1>
 <p>Book Your Tickets</p>
 
 <form id="booking-form">
-    <input type="text" placeholder="from" />->
-    <input type="text" placeholder="to" />
-    <input type="date" />
-    <button>Search</button>
+<option>From</option> 
+<select name="" id="Select">
+<option value=""> Select</option>
+<option value="">Indore</option>
+<option value="">Bhopal</option>
+<option value="">Ujjain</option>
+<option value="">Dewas</option>
+<option value="">Shajapur</option>
+<option value="">Delhi</option>
+<option value="">Mumbai</option>
+<option value="">Nagpur</option>
+</select>
+<option>To</option>
+<select name="" id="Select">
+<option value=""> Select</option>
+<option value="">Indore</option>
+<option value="">Ujjain</option>
+<option value="">Dewas</option>
+<option value="">Shajapur</option>
+<option value="">Bhopal</option>
+<option value="">Delhi</option>
+<option value="">Mumbai</option>
+<option value="">Nagpur</option>
+</select>
+<option>Date</option>
+    <input type ="date" />
+    <button id="Search">Search Buses</button>
 </form>
 </body>
