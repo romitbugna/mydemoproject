@@ -3,8 +3,13 @@ class CreateBuses < ActiveRecord::Migration[6.1]
     create_table :buses do |t|
       t.string :bus_name
       t.integer :bus_no
+      t.string :seat_type
+      t.string :from
+      t.string :to
+      t.date :date 
 
-      t.timestamps
+
+      t.timestamps null: false
     end
   end
 end
