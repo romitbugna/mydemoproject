@@ -1,3 +1,4 @@
+<html>
 <body class="container">
 <style type="text/css">
  #Select{
@@ -24,7 +25,7 @@ body { background: pink }
 <form id="booking-form">
 <option>From</option> 
 <select name="" id="Select">
-<option value=""> Select</option>
+<option value="">Select</option>
 <option value="">Indore</option>
 <option value="">Bhopal</option>
 <option value="">Ujjain</option>
@@ -36,7 +37,7 @@ body { background: pink }
 </select>
 <option>To</option>
 <select name="" id="Select">
-<option value=""> Select</option>
+<option value="">Select</option>
 <option value="">Indore</option>
 <option value="">Ujjain</option>
 <option value="">Dewas</option>
@@ -48,6 +49,15 @@ body { background: pink }
 </select>
 <option>Date</option>
     <input type ="date" />
-    <button id="Search">Search Buses</button>
+    
 </form>
+<button id="myButton" class="float-left submit-button" >Search</button>
+
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "http://localhost:3000/buses";
+    };
+</script>
+
 </body>
+</html>
