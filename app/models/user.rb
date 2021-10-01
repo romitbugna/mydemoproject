@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_many :bus 
   has_many :booking
   has_many :schedule
   # Include default devise modules. Others available are:
