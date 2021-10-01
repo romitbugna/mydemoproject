@@ -1,10 +1,14 @@
 class CreateBookings < ActiveRecord::Migration[6.1]
   def change
     create_table :bookings do |t|
-      t.integer :no_of_seats_booked
-      t.string :seat_type
-      t.string :cost_of_ticket
-
+    t.string "bus_name"
+    t.string "bus_no"
+    t.time "time"
+    t.string "bus_destination"
+    t.integer "user_id"
+    t.string "seat_type"
+    t.integer "total_seat"
+      
       t.timestamps null: false
     end
   end
