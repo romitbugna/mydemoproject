@@ -1,0 +1,16 @@
+<div class="col-md-3"></div>
+
+	<div class="well panel-default col-md-6">
+	  	<div class="panel-heading"><center><h3>Book Ticket</h3></center></div>
+	  	<div class="panel-body"><br/>
+			<div>
+			  <% if current_user %>
+				   
+					<%= render 'form' %>
+					
+			  <% else %>
+			    	<h3>You need to <%= link_to "Sign in", id: "sign_in" %> to book the ticket.</h3>
+			  <% end %>
+			</div>
+		</div>	
+	</div>

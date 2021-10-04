@@ -1,0 +1,69 @@
+<%= form_for(@booking) do |f| %>
+    <% if @booking.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+  
+        <ul>
+        <% @booking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+      * Note : Price for each ticket type are mentioned below.
+    </p>
+    <ol> 
+      <li>
+        Lower Class : 300
+      </li>
+      <li>
+        Middle Class :500
+      </li>
+      <li>
+        Higher Class :1000
+      </li>
+    </ol>
+    
+   
+    <div class="field">
+      <%= f.label :seat_type %><br>
+      
+    </div>
+    <div class="field">
+      <%= f.label :cost_of_ticket %><br>
+     
+    </div>
+
+    <%= f.hidden_field :user_id, :value => session[:user_id] %>
+    <%= f.hidden_field :schedule_id, :value => session[:schedule_id] %>
+    <div class="actions">
+      <%= f.submit :class => 'btn btn-block form-control'%>
+    </div>
+  <% end %>
+  
+  <script>
+  
+  
+  $(document).ready( function ()
+  {
+    
+    $('#booking_seat_type').change(function()
+    {
+      var option = $('#booking_seat_type').val();
+      if(option == "Lower Class")
+      {
+        $('#booking_cost_of_ticket').val(300*($('#booking_no_of_seats_booked').val()));
+      }
+      else (option == "Middle Class")
+      {
+        $('#booking_cost_of_ticket').val(500*($('#booking_no_of_seats_booked').val()));
+      }
+      else (option == "Higher Class")
+      {
+        $('#booking_cost_of_ticket').val(1000*($('#booking_no_of_seats_booked').val())); 
+      }   
+    });
+  });
+  
+  </script>
