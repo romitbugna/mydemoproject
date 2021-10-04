@@ -14,18 +14,18 @@ class BusesController < ApplicationController
     end
 
     def create
-        @bus = Bus.new(bus_params)
+      @bus = Bus.new(bus_params)
     
-        respond_to do |format|
-          if @bus.save
-            format.html { redirect_to @bus, notice: 'Bus was successfully created.' }
-            format.json { render :show, status: :created, location: @bus }
-          else
-            format.html { render :new }
-            format.json { render json: @bus.errors, status: :unprocessable_entity }
-          end
+      respond_to do |format|
+        if @bus.save
+          format.html { redirect_to @bus, notice: 'Bus was successfully created.' }
+          format.json { render :show, status: :created, location: @bus }
+        else
+          format.html { render :new }
+          format.json { render json: @bus.errors, status: :unprocessable_entity }
         end
       end
+    end
 
       def update
         respond_to do |format|
@@ -57,6 +57,6 @@ class BusesController < ApplicationController
           params.require(:bus).permit(:name)
         end
     end
-end
+  
 
 

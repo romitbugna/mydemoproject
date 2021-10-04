@@ -19,8 +19,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @user = User.find(session[:user_id])
+    # @user = User.find(session[:user_id])
     respond_to do |format|
+      if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
     
