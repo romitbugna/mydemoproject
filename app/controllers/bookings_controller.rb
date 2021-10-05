@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   def index
     @bookings = Booking.all
   end
@@ -21,25 +22,25 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     # @user = User.find(session[:user_id])
     respond_to do |format|
-      if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-        format.json { render :show, status: :created, location: @booking }
+    if @booking.save
+      format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+      format.json { render :show, status: :created, location: @booking }
     
-      else
-        format.html { render :new }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
-        end
+    else
+      format.html { render :new }
+      format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
+  end
 
   def update
     respond_to do |format|
-      if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
-        format.json { render :show, status: :ok, location: @booking }
-      else
-        format.html { render :edit }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
+    if @booking.update(booking_params)
+      format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+      format.json { render :show, status: :ok, location: @booking }
+    else
+      format.html { render :edit }
+      format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
   end
