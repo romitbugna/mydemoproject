@@ -22,34 +22,18 @@ body { background: pink }
 <h1>Welcome User</h1>
 <p>Book Your Tickets</p>
 
-<form id="booking-form">
-<option>From</option> 
-<select name="" id="Select">
-<option value="">Select</option>
-<option value="">Indore</option>
-<option value="">Bhopal</option>
-<option value="">Ujjain</option>
-<option value="">Dewas</option>
-<option value="">Shajapur</option>
-<option value="">Delhi</option>
-<option value="">Mumbai</option>
-<option value="">Nagpur</option>
-</select>
-<option>To</option>
-<select name="" id="Select">
-<option value="">Select</option>
-<option value="">Indore</option>
-<option value="">Ujjain</option>
-<option value="">Dewas</option>
-<option value="">Shajapur</option>
-<option value="">Bhopal</option>
-<option value="">Delhi</option>
-<option value="">Mumbai</option>
-<option value="">Nagpur</option>
-</select>
-<option>Date</option>
-    <input type ="date" />
-    
+<div class="booking-form">
+<label>From</label>
+<input type="text" class="form-control" placeholder="city"
+<label>To</label>
+<input type="text" class="form-control" placeholder="city"
+
+<div class="input-grp">
+<label>Date</label>
+<input type="date" class="form-control" select-date">
+</div>
+</div>
+
 </form>
 <button id="myButton" class="float-left submit-button" >Search</button>
 
