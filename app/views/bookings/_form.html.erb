@@ -31,7 +31,8 @@
 
     <div class="field">
       <%= f.label :seat_type %><br>
-      
+      <%= f.select(:seat_type, Booking::SEAT_TYPE_LIST, :include_blank => " Select Seat Type" , :required => true, :class => 'form-control') %>
+
     </div>
     <div class="field">
       <%= f.label :cost_of_ticket %><br>
