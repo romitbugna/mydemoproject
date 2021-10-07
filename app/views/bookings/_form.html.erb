@@ -27,6 +27,8 @@
     
     <div class="field">
     <%= f.label :no_of_seats_booked %><br>
+        <%= f.number_field :no_of_seats_booked, :step=>1, :min=>1, :required => true, :class => 'form-control' %>
+
     </div>
 
     <div class="field">
@@ -36,7 +38,7 @@
     </div>
     <div class="field">
       <%= f.label :cost_of_ticket %><br>
-     
+      
     </div>
 
     <%= f.hidden_field :user_id, :value => session[:user_id] %>
