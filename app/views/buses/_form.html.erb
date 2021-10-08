@@ -1,4 +1,5 @@
-<%= form_for(@bus) do |f| %>
+<body class="container">
+<%= bootstrap_form_for(@bus) do |f| %>
     <% if @bus.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@bus.errors.count, "error") %> prohibited this bus from being saved:</h2>
@@ -12,11 +13,37 @@
     <% end %>
   
     <div class="field">
-      <%= f.label :name %><br>
       <%= f.text_field :bus_name %>
     </div>
+
+    <div class="field">
+      <%= f.text_field :bus_no %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :seat_type %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :from %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :to %>
+    </div>
+    
+    <div class="field">
+      <%= f.text_field :date %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :time %>
+    </div>
+
+
     <div class="actions">
       <%= f.submit %>
     </div>
   <% end %>
   
+  </body>

@@ -1,9 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Bus Name:</strong>
   <%= @bus.bus_name %>
 </p>
+
+<p>
+  <strong>Bus No:</strong>
+  <%= @bus.bus_no %>
+</p>
+
+<p>
+  <strong>Seat_type:</strong>
+  <%= @bus.seat_type %>
+</p>
+<p>
+  <strong>From:</strong>
+  <%= @bus.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @bus.to %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @bus.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @bus.time %>
+</p>
+
 
 <%= link_to 'Edit', edit_bus_path(@bus) %> |
 <%= link_to 'Back', buses_path %>
