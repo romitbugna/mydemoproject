@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 
@@ -16,10 +17,13 @@
 
 <p>
   <strong>Cost of ticket:</strong>
-  
+  <%= find_cost_of_ticket(@booking) %>
+
 </p>
 
 <h4>
-<%= link_to 'Print',booking_path(@booking, format: "pdf") %> |
-<%= link_to 'Book Another', :controller=> 'bookings', :action=> 'new' %> </h4>
+<%= link_to 'Print',booking_path(@booking, format: "pdf"), class: "btn btn-success" %> |
+<%= link_to 'Book Another', :controller=> 'bookings', :action=> 'new', class: "btn btn-primary" %> </h4>
+</div>
+
 </div>
