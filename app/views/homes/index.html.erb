@@ -19,28 +19,22 @@
 body { background: pink }
 </style>
 
-<h1>Welcome User</h1>
-<p>Book Your Tickets</p>
+<h2 class="my-3">Book Your Tickets</h2>
 
 <div class="booking-form">
 <label>From</label>
 <input type="text" class="form-control" placeholder="city"
 <label>To</label>
 <input type="text" class="form-control" placeholder="city"
-
-<div class="input-grp">
-<label>Date</label>
-<input type="date" class="form-control" select-date">
-</div>
 </div>
 
 </form>
-<button id="myButton" class="float-left submit-button" >Search</button>
+<button id="myButton" class="btn btn-primary btn-lg my-3" style="width: 100%;" >Search</button>
 
 <script type="text/javascript">
-    document.getElementById("myButton").onclick = function () {
-        location.href = "http://localhost:3000/buses";
-    };
+document.getElementById("myButton").onclick = function () {
+location.href = "http://localhost:3000/buses";
+};
 </script>
 
 </body>
