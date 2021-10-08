@@ -20,7 +20,6 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    # @user = User.find(session[:user_id])
     respond_to do |format|
     if @booking.save
       format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
@@ -55,13 +54,13 @@ class BookingsController < ApplicationController
 
   private
 
-    def set_booking
-      @booking = Booking.find(params[:id])
-    end
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
        
 
-    def booking_params
-      params.require(:booking).permit(:total_seat, :seat_type, :bus_name, :bus_no, :bus_destination, :user_id)
-      end
+  def booking_params
+    params.require(:booking).permit(:total_seat,:seat_type, :bus_name, :no_of_seats_booked,:cost_of_ticket, :bus_no, :bus_destination, :user_id)
+  end
 
 end
