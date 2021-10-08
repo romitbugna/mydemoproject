@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_27_083046) do
+ActiveRecord::Schema.define(version: 2021_10_08_062659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "bus_name"
+    t.string "bus_no"
+    t.time "time"
+    t.string "bus_destination"
+    t.integer "user_id"
+    t.string "seat_type"
+    t.integer "total_seat"
+    t.integer "no_of_seats_booked"
+    t.integer "cost_of_ticket"
+  end
+
+  create_table "buses", force: :cascade do |t|
+    t.string "bus_name"
+    t.integer "bus_no"
+    t.string "seat_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "from"
+    t.string "to"
+    t.date "date"
+    t.time "time"
+    t.integer "bus_id"
+    t.integer "total_seat"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
