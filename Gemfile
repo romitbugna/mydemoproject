@@ -24,6 +24,12 @@ gem 'jbuilder', '~> 2.7'
 gem "cancan"
 gem 'devise'
 gem "bootstrap_form", "~> 4.0"
+gem 'will_paginate', '~> 3.3'
+
+gem 'wicked_pdf'
+gem "wkhtmltopdf-binary", group: :development
+gem "wkhtmltopdf-heroku", group: :production
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
