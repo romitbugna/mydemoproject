@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
+    @bookings = MYDEMOPROJECT.paginate(:page => params[:page], :per_page => 4)
   end
 
   def new
@@ -22,6 +23,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     respond_to do |format|
     if @booking.save
+      UserMailer.welcome_email(User.last).deliver_now
       format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
       format.json { render :show, status: :created, location: @booking }
     
