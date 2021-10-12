@@ -57,3 +57,5 @@
 <%= link_to 'New Booking', new_booking_path %>
 <%= link_to 'Show', new_booking_path %>
 <%= link_to 'Edit', new_booking_path %>
+<%= link_to "PDF", bookings_path(format: :pdf) %>
+<%= link_to 'This booking in PDF', booking_path(booking, format: :pdf) %>

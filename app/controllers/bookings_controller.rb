@@ -3,6 +3,14 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
     @bookings = MYDEMOPROJECT.paginate(:page => params[:page], :per_page => 4)
+    @bookings = Booking.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render template: "bookings/index.html.erb",
+          pdf: "Posts: #{@bookings.count}"
+      end
+    end
   end
 
   def new
@@ -10,9 +18,14 @@ class BookingsController < ApplicationController
   end
 
   def show
+    BookingMailer.new_booking.deliver_later
     @booking = Booking.find(params[:id])
     respond_to do |format|
       format.html
+      format.pdf do
+        render template: "bookings/show.html.erb",
+          pdf: "Booking ID: #{@booking.id}"
+      end
     end
   end
 
@@ -23,7 +36,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     respond_to do |format|
     if @booking.save
-      UserMailer.welcome_email(User.last).deliver_now
+      UserMailer.welcome_email(@booking).deliver_now
       format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
       format.json { render :show, status: :created, location: @booking }
     
