@@ -3,6 +3,6 @@ class CatfactMailerJob < ApplicationJob
 
   def perform(*args)
     booking = args[0]
-    UserMailer.welcome_email(@booking).deliver_now
+    UserMailer.welcome_email(booking).deliver_now
   end
 end
