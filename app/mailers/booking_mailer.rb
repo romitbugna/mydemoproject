@@ -10,7 +10,7 @@ class BookingMailer < ApplicationMailer
     # @post = Post.first
     booking = Booking.first
     attachments["booking_#{booking.id}.pdf"] = WickedPdf.new.pdf_from_string(
-      render_to_string(template: 'bookingss/show.html.erb', layout: 'pdf.html.erb', pdf: 'filename')
+      render_to_string(template: 'bookings/show.html.erb', layout: 'pdf.html.erb', pdf: 'filename')
     )
     mail to: "to@example.org"
   end

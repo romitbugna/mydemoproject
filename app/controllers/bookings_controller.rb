@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    BookingMailer.new_booking.deliver_later
+    # BookingMailer.new_booking.deliver_later
     @booking = Booking.find(params[:id])
     respond_to do |format|
       format.html
@@ -36,7 +36,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     respond_to do |format|
     if @booking.save
-      UserMailer.welcome_email(@booking).deliver_now
+      # UserMailer.welcome_email(@booking).deliver_now
+      CatfactMailerJob.perform_later @booking 
       format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
       format.json { render :show, status: :created, location: @booking }
     
