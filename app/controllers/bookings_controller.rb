@@ -3,7 +3,6 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
     @bookings = MYDEMOPROJECT.paginate(:page => params[:page], :per_page => 4)
-    @bookings = Booking.all
     respond_to do |format|
       format.html
       format.pdf do
@@ -18,7 +17,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    # BookingMailer.new_booking.deliver_later
+    # BookingMailer.new_post.deliver_later
     @booking = Booking.find(params[:id])
     respond_to do |format|
       format.html
