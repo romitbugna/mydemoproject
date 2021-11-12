@@ -25,6 +25,9 @@ gem "cancan"
 gem 'devise'
 gem "bootstrap_form", "~> 4.0"
 gem 'will_paginate', '~> 3.3'
+gem 'will_paginate-bootstrap4'
+
+
 
 gem 'wicked_pdf'
 gem "wkhtmltopdf-binary", group: :development
@@ -32,6 +35,7 @@ gem "wkhtmltopdf-heroku", group: :production
 gem 'redis-rails'
 gem "sidekiq"
 gem 'sidekiq-cron'
+gem "rolify"
 
 
 # Use Active Storage variant
