@@ -10,6 +10,8 @@ class CreateBookings < ActiveRecord::Migration[6.1]
       t.integer :total_seat
       t.integer :no_of_seats_booked
       t.integer :cost_of_ticket
+      t.string :from
+      t.string :to
       
       t.timestamps null: false
     end
