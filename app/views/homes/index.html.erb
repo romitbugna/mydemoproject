@@ -15,27 +15,32 @@
     height: 30px;
     width: 200px;
  }
+ .margin-top{
+   margin-top: 120px
+ }
+ .text-center{
+    text: center;
+    color: blue;
+ }
 
 body { background: pink }
 </style>
 
-<h2 class="my-3">Book Your Tickets</h2>
+<div class="margin-top">
+   <h1 class="my-3 text-center">Book Your Tickets</h1>
 
-<div class="booking-form">
-<label>From</label>
-<input type="text" class="form-control" placeholder="city"
-<label>To</label>
-<input type="text" class="form-control" placeholder="city"
+   <%= form_tag(search_path, :method => "get") do %>    
+      <div class="input-group">  
+      <%= search_field_tag :search2, params[:search2], placeholder: "From", class: "form-control" %> 
+   <%= search_field_tag :search1, params[:search1], placeholder: "To", class: "form-control" %> 
+
+   <div class="input-group-btn">  
+   <%= button_tag "Search", :class => 'btn btn-primary glyphicon glyphicon-search',:name => nil%>  
+   </div> 
+   </div>  
+   <% end %>
+   </form>
 </div>
-
-</form>
-<button id="myButton" class="btn btn-primary btn-lg my-3" style="width: 100%;" >Search</button>
-
-<script type="text/javascript">
-document.getElementById("myButton").onclick = function () {
-location.href = "http://localhost:3000/buses";
-};
-</script>
 
 </body>
 </html>

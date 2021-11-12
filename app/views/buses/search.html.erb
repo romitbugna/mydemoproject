@@ -1,0 +1,40 @@
+<div class="container my-3">
+
+<% if current_user.has_role? :admin %>
+  <%= link_to  "All Buses", buses_path, class: " btn btn-primary my-3" %>
+<% end %>
+  <h1>All Results</h1>
+    <div>
+      <% @buses.each do |bus| %>
+        <div class="row">
+          <div class="col-md-6">
+            <strong>Bus Name </strong><%= bus.bus_name %><br>
+            <strong>Bus No. </strong><%= bus.bus_no %><br>
+            <strong>Seat Type </strong><%= bus.seat_type %><br>
+            <strong>From </strong><%= bus.from %><br>
+            <strong>To </strong><%= bus.to %><br>
+            <strong>Total Seat </strong><%= bus.total_seat %><br>
+            <strong>Time </strong><%= bus.time.strftime("%H:%M:%S") %><br>
+            <div class="mt-3">
+              <%= link_to "Select Bus", new_booking_path(bus_id: bus), :class => ' btn btn-primary' %>
+              <%= link_to 'Show', bus , class: "btn btn-success" %>
+              <% if current_user.has_role? :admin %>
+                <%= link_to 'Edit', edit_bus_path(bus), class: "btn btn-warning" %>
+                <%= link_to 'Destroy', bus, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+              <% end %>
+              </div>    
+          </div>
+          <div class="col-md-4">
+            Lower class <strong><%= bus.lower_class %></strong><br><br>
+            Middle class <strong><%= bus.middle_class %></strong><br><br>
+            Higher class <strong><%= bus.higher_class %></strong><br>
+          </div>
+        </div>
+            <br>
+            <hr>
+          
+      <% end %>
+  </div>
+  <br>
+
+</div>

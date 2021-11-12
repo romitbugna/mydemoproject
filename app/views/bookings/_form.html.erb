@@ -16,13 +16,13 @@
   </p>
   <ol> 
     <li>
-      Lower Class : 300
+      Lower Class : <%= Bus.find(@bus_id).lower_class %>
     </li>
     <li>
-      Middle Class :500
+      Middle Class : <%= Bus.find(@bus_id).middle_class %>
     </li>
     <li>
-      Higher Class :1000
+      Higher Class : <%= Bus.find(@bus_id).higher_class %>
     </li>
   </ol>
     
@@ -31,11 +31,18 @@
     </div>
  
     <div class="field">
-      <%= f.select(:seat_type, Booking::SEAT_TYPE_LIST, :include_blank => " Select Seat Type" , :required => true, :class => 'form-control') %>
+      <%= f.select :cost_of_ticket , [["Lower Class", "#{Bus.find(@bus_id).lower_class}"], ["Middle Class", "#{Bus.find(@bus_id).middle_class}"], [" Higher Class", "#{Bus.find(@bus_id).higher_class}"]] %>
     </div>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.hidden_field :schedule_id, :value => session[:schedule_id] %>
+    <%= f.hidden_field :bus_id, :value => @bus_id %>
+    <%= f.hidden_field :bus_name, :value => bus_name(@bus_id) %>
+    <%= f.hidden_field :bus_no, :value => bus_no(@bus_id) %>
+    <%= f.hidden_field :from, :value => from(@bus_id) %>
+    <%= f.hidden_field :to, :value => to(@bus_id) %>
+    <%= f.hidden_field :time, :value => time(@bus_id) %>
+    <%= f.hidden_field :total_seat, :value => total_seat(@bus_id) %>
+    <%= f.hidden_field :seat_type, :value => seat_type(@bus_id) %>
   <div class="actions" style="background-color: green;">
     <%= f.submit :class => 'btn btn-block form-control'%>
   </div>

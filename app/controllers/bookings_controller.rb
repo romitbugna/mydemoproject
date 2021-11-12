@@ -1,18 +1,17 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :update_bus_seat, only: [:show]
 
   def index
     @bookings = Booking.all
-    @bookings = MYDEMOPROJECT.paginate(:page => params[:page], :per_page => 4)
+    # @bookings = BOOKING.paginate(:page => params[:page], :per_page => 4)
     respond_to do |format|
       format.html
-      format.pdf do
-        render template: "bookings/index.html.erb",
-          pdf: "Posts: #{@bookings.count}"
-      end
     end
   end
 
   def new
+    @bus_id = params[:bus_id]
     @booking = Booking.new
   end
 
@@ -72,10 +71,16 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
   end
-       
+     
+  def update_bus_seat
+    nos =  @booking.no_of_seats_booked
+    ts = Bus.find(@booking.bus_id).total_seat
+    total = ts - nos
+    Bus.find(@booking.bus_id).update(total_seat: total)
+  end
 
   def booking_params
-    params.require(:booking).permit(:total_seat,:seat_type, :bus_name, :no_of_seats_booked,:cost_of_ticket, :bus_no, :bus_destination, :user_id)
+    params.require(:booking).permit(:total_seat,:seat_type, :bus_name, :no_of_seats_booked,:cost_of_ticket, :bus_no, :bus_destination, :user_id, :from, :bus_id, :to, :time, :available_seat)
   end
 
 end

@@ -1,16 +1,26 @@
 module BookingsHelper
-    def find_cost_of_ticket(booking)
-        cost = ""
-        if booking.seat_type == "Lower Class"
-            booking.update(cost_of_ticket: 300)
-            cost = 300
-        elsif booking.seat_type ==  "Middle Class"
-            booking.update(cost_of_ticket: 500)
-            cost = 500
-        else
-            booking.update(cost_of_ticket: 1000)
-            cost = 1000
-        end
-        cost
+    def bus_name(bus_id)
+        Bus.find(bus_id).bus_name
+    end
+    def bus_no(bus_id)
+        Bus.find(bus_id).bus_no
+    end
+    def from(bus_id)
+        Bus.find(bus_id).from
+    end
+    def to(bus_id)
+        Bus.find(bus_id).to
+    end
+    def time(bus_id)
+        Bus.find(bus_id).time
+    end
+    def total_seat(bus_id)
+        Bus.find(bus_id).total_seat
+    end
+    def seat_type(bus_id)
+        Bus.find(bus_id).seat_type
+    end
+    def bus_id(bus_id)
+        Bus.find(bus_id).bus_id
     end
 end

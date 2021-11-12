@@ -1,7 +1,16 @@
 class BusesController < ApplicationController
   before_action :set_bus, only: [:show, :edit, :update, :destroy]
+  
+  def search
+    to = params[:search1]
+    from = params[:search2]
+    @buses = Bus.where(from: from, to: to)
+      
+  end
+
   def index
     @buses = Bus.all
+    @buses = Bus.paginate(:page => params[:page], :per_page => 1)
   end
 
   def show
@@ -55,7 +64,7 @@ class BusesController < ApplicationController
   end
 
   def bus_params
-    params.require(:bus).permit(:bus_name,:bus_no, :seat_type,:from, :to, :date, :time)
+    params.require(:bus).permit(:bus_name,:bus_no, :seat_type,:from, :to, :date, :time, :search, :total_seat,:available_seat, :bus_id, :lower_class, :middle_class, :higher_class)
   end
 end
   
